@@ -6,7 +6,7 @@
 /*   By: gaetan <gaetan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:09:19 by gaetan            #+#    #+#             */
-/*   Updated: 2023/02/16 11:12:03 by gaetan           ###   ########.fr       */
+/*   Updated: 2023/02/18 06:33:02 by gaetan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,8 @@
 
 static void	*ft_rev_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char	*d;
-	unsigned char	*s;
-
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
 	while (n--)
-		d[n] = s[n];
+		((char *)dst)[n] = ((char *)src)[n];
 	return (dst);
 }
 
