@@ -1,12 +1,10 @@
 NAME = libft.a
 CC = gcc
-SRCSDIR = srcs/
-HEADERSDIR = includes/
-CFLAGS = -Wall -Werror -Wextra -I $(HEADERSDIR)
+CFLAGS = -Wall -Werror -Wextra -I .
 AR = ar rcs
 RM = rm -f
 
-_SRCS = ft_memset.c \
+SRCS = ft_memset.c \
 	ft_bzero.c \
 	ft_memcpy.c \
 	ft_memmove.c \
@@ -35,12 +33,13 @@ _SRCS = ft_memset.c \
 	ft_split.c \
 	ft_itoa.c \
 	ft_strmapi.c \
+	ft_striteri.c \
 	ft_putchar_fd.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
 
-_SRCS_BONUS = ft_lstnew.c \
+SRCS_BONUS = ft_lstnew.c \
 	ft_lstadd_front.c \
 	ft_lstsize.c \
 	ft_lstlast.c \
@@ -50,9 +49,7 @@ _SRCS_BONUS = ft_lstnew.c \
 	ft_lstiter.c \
 	ft_lstmap.c
 
-SRCS = $(addprefix $(SRCSDIR), $(_SRCS))
 OBJS = $(SRCS:.c=.o)
-SRCS_BONUS = $(addprefix $(SRCSDIR), $(_SRCS_BONUS))
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 all: $(NAME)
@@ -67,15 +64,11 @@ clean:
 	$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	$(RM) $(NAME) libft.so
+	$(RM) $(NAME)
 
 re: fclean all
 
 bonus: $(OBJS) $(OBJS_BONUS)
 	$(AR) $(NAME) $^
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(SRCS_BONUS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJS_BONUS)
-
-.PHONY: all clean fclean re bonus so
+.PHONY: all clean fclean re bonus
