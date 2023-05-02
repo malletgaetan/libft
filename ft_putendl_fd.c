@@ -6,7 +6,7 @@
 /*   By: gmallet <gmallet@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:53:17 by gmallet           #+#    #+#             */
-/*   Updated: 2023/05/01 21:53:18 by gmallet          ###   ########.fr       */
+/*   Updated: 2023/05/02 15:51:54 by gmallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	len;
-
-	len = 0;
-	s[len] = '\n';
-	write(fd, s, len + 1);
-	s[len] = '\0';
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

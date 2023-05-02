@@ -6,11 +6,12 @@
 /*   By: gmallet <gmallet@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:53:32 by gmallet           #+#    #+#             */
-/*   Updated: 2023/05/01 21:53:34 by gmallet          ###   ########.fr       */
+/*   Updated: 2023/05/02 16:57:36 by gmallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static size_t	get_nb_words(char *s, char c)
 {
@@ -21,9 +22,11 @@ static size_t	get_nb_words(char *s, char c)
 	{
 		while (*s && *s == (char)c)
 			s++;
+		if (!(*s))
+			break ;
+		++count;
 		while (*s && *s != (char)c)
 			s++;
-		count++;
 	}
 	return (count);
 }
@@ -42,6 +45,16 @@ static char	*get_next_word(char **s, char c)
 	return (ft_substr(sptr, 0, *s - sptr));
 }
 
+static void	free_split(char **tab, size_t len)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < len)
+		free(tab[i++]);
+	free(tab);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	*ptr;
@@ -56,7 +69,15 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	i = 0;
 	while (i < tabsize)
-		tab[i++] = get_next_word(&ptr, c);
+	{
+		tab[i] = get_next_word(&ptr, c);
+		if (!(tab[i]))
+		{
+			free_split(tab, i);
+			return (NULL);
+		}
+		++i;
+	}
 	tab[i] = NULL;
 	return (tab);
 }

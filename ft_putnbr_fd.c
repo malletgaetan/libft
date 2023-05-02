@@ -6,7 +6,7 @@
 /*   By: gmallet <gmallet@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:53:21 by gmallet           #+#    #+#             */
-/*   Updated: 2023/05/01 21:53:24 by gmallet          ###   ########.fr       */
+/*   Updated: 2023/05/02 15:52:18 by gmallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ void	ft_putnbr_fd(int nb, int fd)
 	{
 		nblen = fill_number(tab + 10, (unsigned int)nb);
 	}
-	printf("\nprinting number of length %u\n", nblen);
 	write(fd, tab + 11 - nblen, nblen);
 }
