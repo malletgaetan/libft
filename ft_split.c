@@ -6,12 +6,11 @@
 /*   By: gmallet <gmallet@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:53:32 by gmallet           #+#    #+#             */
-/*   Updated: 2023/05/02 16:57:36 by gmallet          ###   ########.fr       */
+/*   Updated: 2023/05/02 17:00:16 by gmallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static size_t	get_nb_words(char *s, char c)
 {
