@@ -6,7 +6,7 @@
 /*   By: gmallet <gmallet@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:20:30 by gaetan            #+#    #+#             */
-/*   Updated: 2023/05/02 16:38:07 by gmallet          ###   ########.fr       */
+/*   Updated: 2023/05/07 17:44:05 by gmallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
+# include "get_next_line.h"
+# include "ft_printf.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
